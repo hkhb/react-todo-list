@@ -2,7 +2,7 @@ import { useState} from 'react';
 import "./App.css"
 import Modal from './components/Modal.tsx'
 import Lists from "./components/list.tsx"
-import ItemModal from "./components/ItemModal.tsx"
+import ItemFrom from "./components/ItemFrom.tsx"
 
 export interface TodoItem {
   id: number;
@@ -188,7 +188,7 @@ function App() {
           onCancel={onModalCancel}
         >
           <div>
-            <ItemModal
+            <ItemFrom
               editList={list}
               isEdit={isEdit}
               onEditList={onEditList}
