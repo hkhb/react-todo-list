@@ -3,6 +3,7 @@ import "./App.css"
 import Modal from './components/Modal.tsx'
 import Lists from "./components/list.tsx"
 import ItemFrom from "./components/ItemFrom.tsx"
+import ListNew from './components/listnew.tsx';
 
 export interface TodoItem {
   id: number;
@@ -200,6 +201,16 @@ function App() {
       <ul>
         {todoItems.map((todoItem) => (
           <Lists
+            key={todoItem.id}
+            {...todoItem}
+            onClickEdit={() => onClickList(todoItem)}
+            onClickDelete={() => onDelete(todoItem.id)}
+          /> 
+        ))}
+      </ul>
+      <ul>
+        {todoItems.map((todoItem) => (
+          <ListNew
             key={todoItem.id}
             {...todoItem}
             onClickEdit={() => onClickList(todoItem)}
