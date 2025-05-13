@@ -1,6 +1,5 @@
-import React from "react";
 import { format } from "date-fns";
-import "./list.css";
+// import "./list.css";
 import { TodoItem } from "../App.tsx";
 import {
   Box,
@@ -9,10 +8,7 @@ import {
   Text,
   Button,
   Badge,
-  Icon,
-  // useColorModeValue,
 } from "@chakra-ui/react";
-// import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 
 interface TodoItemWithClick extends TodoItem {
   onClickEdit: () => void;
@@ -33,8 +29,6 @@ const ListNew: React.FC<TodoItemWithClick> = ({
     "yyyy-MM-dd HH:mm",
   );
 
-  // const bgColor = useColorModeValue("gray.100", "gray.700");
-
   return (
     <Box
       bg={completed ? "green.50" : "orange.50"}
@@ -46,7 +40,7 @@ const ListNew: React.FC<TodoItemWithClick> = ({
     >
       <Flex justify="space-between" align="center" mb={2}>
         <Heading
-          size="md"
+          size="2xl"
           onClick={onClickEdit}
           _hover={{ textDecoration: "underline" }}
         >
@@ -66,7 +60,7 @@ const ListNew: React.FC<TodoItemWithClick> = ({
           {completed ? "✔️ 完了" : "⚠️ 未完了"}
         </Badge>
 
-        <Button colorScheme="red" size="sm" onClick={onClickDelete}>
+        <Button colorScheme="red" size="sm" onClick={onClickDelete} _hover={{ bg: "red.600" }}>
           削除
         </Button>
       </Flex>
@@ -76,14 +70,6 @@ const ListNew: React.FC<TodoItemWithClick> = ({
       </Text>
 
       <Flex justify="flex-end" align="center">
-        {/* <Badge
-          colorScheme={completed ? "green" : "orange"}
-          px={2}
-          py={1}
-          borderRadius="full"
-          fontSize="0.8em"
-        >
-        </Badge> */}
 
         <Text fontSize="sm" color="gray.500">
           {displayDate}
