@@ -1,9 +1,9 @@
-import { useState} from 'react';
-import "./App.css"
-import Modal from './components/Modal.tsx'
-import Lists from "./components/list.tsx"
-import ItemFrom from "./components/ItemFrom.tsx"
-import ListNew from './components/listnew.tsx';
+import { useState } from "react";
+import "./App.css";
+import Modal from "./components/Modal.tsx";
+import Lists from "./components/list.tsx";
+import ItemFrom from "./components/ItemFrom.tsx";
+import ListNew from "./components/listnew.tsx";
 
 export interface TodoItem {
   id: number;
@@ -114,50 +114,51 @@ function App() {
     setIsEdit(true);
     setEditList(todoItem);
     openModal();
-  }
+  };
   //リストの削除
   //引数 id
-  //idがある場合 
+  //idがある場合
   //alartを出す(削除OK？)
   //戻り値なし
-  //idがない場合 
+  //idがない場合
   //alartを出す(idがない)
-  //戻り値なし 
+  //戻り値なし
   //現在のtodolistを新しい変数で受け取る
   //リストごとに分割
-  //idが同じでない場合、newtodolistに格納 
+  //idが同じでない場合、newtodolistに格納
   //idが同じ場合、何もしない
   //setterでnewtodolistに変更
-  const onDelete = (id:number) =>{
-    if(!id){
-      alert("idがありません")
+  const onDelete = (id: number) => {
+    if (!id) {
+      alert("idがありません");
       return;
     }
-    const confirm:boolean = window.confirm("本当に削除しますか？");
-    if(confirm){
-      const prevtodoItems:TodoItem[] = todoItems
-      const newtodoItems:TodoItem[] = 
-        prevtodoItems.filter((Item:TodoItem) => Item.id !== id
-        )
+    const confirm: boolean = window.confirm("本当に削除しますか？");
+    if (confirm) {
+      const prevtodoItems: TodoItem[] = todoItems;
+      const newtodoItems: TodoItem[] = prevtodoItems.filter(
+        (Item: TodoItem) => Item.id !== id,
+      );
       setTodoItems(newtodoItems);
     }
-  }
-  const onAddList = (title:string, description:string) => {
-    if(!!title){
-      const newId:number = Math.max(0,...todoItems.map(item => item.id)) +1;
-      const newTodo:TodoItem = {
+  };
+  const onAddList = (title: string, description: string) => {
+    if (!!title) {
+      const newId: number =
+        Math.max(0, ...todoItems.map((item) => item.id)) + 1;
+      const newTodo: TodoItem = {
         id: newId,
         title,
         description,
         completed: false,
         createdAt: new Date(),
-      }
+      };
       setTodoItems([...todoItems, newTodo]);
       closeModal();
-    }else{
-      alert("titleを入力してください")
+    } else {
+      alert("titleを入力してください");
     }
-  }
+  };
   // 編集したものものを受取、リストに反映させる
   //引数　title, dedcriotion, id
   //titleがある場合
@@ -165,36 +166,41 @@ function App() {
   //titleがない場合
   //戻り値　なし
   //titleがない場合は、alartを出す
-  const onEditList = (title:string, description:string, id:number) => {
-    if(!title){
-      alert("titleを入力してください")
+  const onEditList = (title: string, description: string, id: number) => {
+    if (!title) {
+      alert("titleを入力してください");
       return;
     }
-    
+
     setTodoItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? {...item, title: title, description: description, updatedAt: new Date() } : item
-    ));
+        item.id === id
+          ? {
+              ...item,
+              title: title,
+              description: description,
+              updatedAt: new Date(),
+            }
+          : item,
+      ),
+    );
     closeModal();
-  }
-  const list = editList? editList : undefined;
+  };
+  const list = editList ? editList : undefined;
 
   return (
     <div className="container">
       <h1>TODOlist</h1>
       <div className="open-modal">
         <button onClick={openModal}>新規作成</button>
-        <Modal
-          showFlag={showModal}
-          onCancel={onModalCancel}
-        >
+        <Modal showFlag={showModal} onCancel={onModalCancel}>
           <div>
             <ItemFrom
               editList={list}
               isEdit={isEdit}
               onEditList={onEditList}
               onAddList={onAddList}
-              />
+            />
           </div>
         </Modal>
       </div>
@@ -205,7 +211,7 @@ function App() {
             {...todoItem}
             onClickEdit={() => onClickList(todoItem)}
             onClickDelete={() => onDelete(todoItem.id)}
-          /> 
+          />
         ))}
       </ul>
       <ul>
@@ -215,7 +221,7 @@ function App() {
             {...todoItem}
             onClickEdit={() => onClickList(todoItem)}
             onClickDelete={() => onDelete(todoItem.id)}
-          /> 
+          />
         ))}
       </ul>
     </div>

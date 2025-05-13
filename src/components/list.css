@@ -65,7 +65,9 @@
   border-radius: 6px;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .delete-button:hover {

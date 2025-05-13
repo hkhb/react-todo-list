@@ -7,25 +7,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-	base: '/react-todo-list-poc/',
-	plugins: [react()],
-	publicDir: path.resolve(__dirname, "public"),
-	build: {
-		// distフォルダに出力
-		outDir: path.resolve(__dirname, "dist"),
-		// 存在しないときはフォルダを作成する
-		emptyOutDir: true,
-		copyPublicDir: true,
-		cssCodeSplit: true,
-		rollupOptions: {
-			// entry pointがあるindex.htmlのパス
-			input: {
-				index: path.resolve(__dirname, "index.html"),
-			},
-			output: {
-				entryFileNames: "assets/bundle.js",
-				assetFileNames: "assets/[hash].css",
-			},
-		},
-	},
+  base: "/react-todo-list-poc/",
+  plugins: [react()],
+  publicDir: path.resolve(__dirname, "public"),
+  build: {
+    // distフォルダに出力
+    outDir: path.resolve(__dirname, "dist"),
+    // 存在しないときはフォルダを作成する
+    emptyOutDir: true,
+    copyPublicDir: true,
+    cssCodeSplit: true,
+    rollupOptions: {
+      // entry pointがあるindex.htmlのパス
+      input: {
+        index: path.resolve(__dirname, "index.html"),
+      },
+      output: {
+        entryFileNames: "assets/bundle.js",
+        assetFileNames: "assets/[hash].css",
+      },
+    },
+  },
 });

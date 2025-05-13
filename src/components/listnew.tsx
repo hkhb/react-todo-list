@@ -14,20 +14,30 @@ import {
 } from "@chakra-ui/react";
 // import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 
-
 interface TodoItemWithClick extends TodoItem {
   onClickEdit: () => void;
   onClickDelete: () => void;
 }
 
-  const ListNew : React.FC<TodoItemWithClick> = ({completed, title, description, createdAt, updatedAt, onClickEdit, onClickDelete}) => {
-    const displayDate = format(updatedAt ? updatedAt : createdAt, 'yyyy-MM-dd HH:mm');
+const ListNew: React.FC<TodoItemWithClick> = ({
+  completed,
+  title,
+  description,
+  createdAt,
+  updatedAt,
+  onClickEdit,
+  onClickDelete,
+}) => {
+  const displayDate = format(
+    updatedAt ? updatedAt : createdAt,
+    "yyyy-MM-dd HH:mm",
+  );
 
-    // const bgColor = useColorModeValue("gray.100", "gray.700");
+  // const bgColor = useColorModeValue("gray.100", "gray.700");
 
   return (
     <Box
-      bg={"gray.100"}
+      bg={completed ? "green.50" : "orange.50"}
       p={5}
       borderRadius="xl"
       boxShadow="md"
@@ -43,6 +53,19 @@ interface TodoItemWithClick extends TodoItem {
           {title}
         </Heading>
 
+        <Badge
+          colorScheme={completed ? "green" : "orange"}
+          px={3}
+          py={1}
+          borderRadius="full"
+          fontSize="0.9em"
+          display="flex"
+          alignItems="center"
+          gap={1}
+        >
+          {completed ? "✔️ 完了" : "⚠️ 未完了"}
+        </Badge>
+
         <Button colorScheme="red" size="sm" onClick={onClickDelete}>
           削除
         </Button>
@@ -52,26 +75,15 @@ interface TodoItemWithClick extends TodoItem {
         {description}
       </Text>
 
-      <Flex justify="space-between" align="center">
-        <Badge
+      <Flex justify="flex-end" align="center">
+        {/* <Badge
           colorScheme={completed ? "green" : "orange"}
           px={2}
           py={1}
           borderRadius="full"
           fontSize="0.8em"
         >
-          {completed ? (
-            <Flex align="center" gap={1}>
-              {/* <CheckCircleIcon /> */}
-              完了
-            </Flex>
-          ) : (
-            <Flex align="center" gap={1}>
-              {/* <WarningIcon /> */}
-              未完了
-            </Flex>
-          )}
-        </Badge>
+        </Badge> */}
 
         <Text fontSize="sm" color="gray.500">
           {displayDate}
