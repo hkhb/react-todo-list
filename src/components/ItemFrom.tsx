@@ -71,7 +71,7 @@ const ItemForm = ({
               />
             <Field.ErrorText>タイトルは必須です</Field.ErrorText>
           </Field.Root>
-          <Field.Root invalid>
+          <Field.Root invalid={false}>
             <Field.Label>詳細</Field.Label>
             <Input
               {...register("Description")}
