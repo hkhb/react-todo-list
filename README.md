@@ -1,6 +1,6 @@
 # ReactTodoList
 
-DEMOのリンクhttps://hkhb.github.io/react-todo-list-poc/
+DEMOのリンクhttps://hkhb.github.io/react-todo-list/
 
 ## 概要
 
@@ -18,10 +18,10 @@ ReactとTypeScriptで実装したシンプルなTodoアプリです。
 ## 使用技術
 
 ### フロントエンド
-
-- HTML/CSS
+- HTML
 - TypeScript (ES6)
 - React
+- ChakraUI
 
 ### その他
 
