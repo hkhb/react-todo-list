@@ -3,10 +3,12 @@
 DEMOのリンクhttps://hkhb.github.io/react-todo-list/
 
 ## 概要
+
 ReactとTypeScriptで実装したシンプルなTodoアプリです。  
 タスクの追加・編集・削除ができ、モーダルによるUI操作を体験できます。
 
 ## 機能一覧
+
 - タスク（リスト）の追加
 - タスクの編集（モーダルUI）
 - タスクの削除
@@ -14,6 +16,7 @@ ReactとTypeScriptで実装したシンプルなTodoアプリです。
 - ローカルストレージに保存
 
 ## 使用技術
+
 ### フロントエンド
 - HTML
 - TypeScript (ES6)
@@ -21,21 +24,25 @@ ReactとTypeScriptで実装したシンプルなTodoアプリです。
 - ChakraUI
 
 ### その他
+
 - GitHub Actions
 - date.fns（日付処理ライブラリ）
 
 ## 画面キャプチャ
+
 準備中
 
 ## 工夫した点 / 苦労した点
+
 - **モーダルコンポーネントを自作し、汎用的に使えるよう設計**
   - childrenを使って中身を柔軟に差し替えられるように工夫
 - **日付表示ライブラリの選定**
   - 型定義ができ、標準に近く関数的なdate.fnsを採用
-  比較検討記事: https://qiita.com/hkhb/items/d1c2e9180971c7319ff2
+    比較検討記事: https://qiita.com/hkhb/items/d1c2e9180971c7319ff2
 - ローカルストレージに保存する際にうまくいかない(loopする)
 
 ## 今後の改善点（ToDo）
+
 - カテゴリや優先するものがわかるようにする。
 - 完了未完了が変更できるようにする
 
