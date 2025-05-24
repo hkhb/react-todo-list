@@ -1,9 +1,12 @@
 import { useState } from "react";
-import "./App.css";
 import Modal from "./components/Modal.tsx";
-import Lists from "./components/list.tsx";
+import List from "./components/list.tsx";
 import ItemFrom from "./components/ItemFrom.tsx";
-import ListNew from "./components/listnew.tsx";
+import {
+  Box,
+  Heading,
+  Button,
+} from "@chakra-ui/react";
 
 export interface TodoItem {
   id: number;
@@ -189,42 +192,38 @@ function App() {
   const list = editList ? editList : undefined;
 
   return (
-    <div className="container">
-      <h1>TODOlist</h1>
-      <div className="open-modal">
-        <button onClick={openModal}>新規作成</button>
+    <Box 
+      width="600px"
+      margin="0 auto"
+      >
+      <Heading size={"4xl"}>TODOlist</Heading>
+      <Box
+        display="flex"
+        justify-content="flex-end"
+        >
+        <Button margin={"16px"} onClick={openModal}>新規作成</Button>
         <Modal showFlag={showModal} onCancel={onModalCancel}>
-          <div>
+          <Box>
             <ItemFrom
               editList={list}
               isEdit={isEdit}
               onEditList={onEditList}
               onAddList={onAddList}
             />
-          </div>
+          </Box>
         </Modal>
-      </div>
-      <ul>
+      </Box>
+      <Box >
         {todoItems.map((todoItem) => (
-          <Lists
+          <List
             key={todoItem.id}
             {...todoItem}
             onClickEdit={() => onClickList(todoItem)}
             onClickDelete={() => onDelete(todoItem.id)}
           />
         ))}
-      </ul>
-      <ul>
-        {todoItems.map((todoItem) => (
-          <ListNew
-            key={todoItem.id}
-            {...todoItem}
-            onClickEdit={() => onClickList(todoItem)}
-            onClickDelete={() => onDelete(todoItem.id)}
-          />
-        ))}
-      </ul>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

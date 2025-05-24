@@ -1,5 +1,12 @@
 import { useForm } from "react-hook-form";
 import { TodoItem } from "../App.tsx";
+import {
+  Heading,
+  Box,
+  Button,
+  Input,
+  Field
+} from "@chakra-ui/react";
 
 interface ItemModalProps {
   editList?: TodoItem;
@@ -41,27 +48,58 @@ const ItemForm = ({
   };
 
   return (
-    <div>
-      <h1>{isEdit ? "リスト編集" : "リスト追加"}</h1>
-      <div className="form-container">
+    <Box>
+      <Heading
+        marginTop="16px"
+        size="3xl"
+        textAlign="Center"
+        >
+        {isEdit ? "リスト編集" : "リスト追加"}
+      </Heading>
+      <Box
+        max-width="500px"
+        box-shadow="0 4px 8px rgba(0, 0, 0, 0.1)"
+        >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label>タイトル</label>
-          <input
-            {...register("Title", {
-              required: "タイトルは必須です",
-            })}
-          />
-          {errors.Title && (
-            <p style={{ color: "red" }}>{errors.Title.message}</p>
-          )}
-          <label>詳細</label>
-          <input {...register("Description")} />
-          <button className="okButton" type="submit">
+          <Field.Root
+            width="100%"
+            invalid>
+            <Field.Label>タイトル</Field.Label>
+            <Input
+              {...register("Title")}
+              width="100%"
+              />
+            <Field.ErrorText>タイトルは必須です</Field.ErrorText>
+          </Field.Root>
+          <Field.Root invalid>
+            <Field.Label>詳細</Field.Label>
+            <Input
+              {...register("Description")}
+              width="100%"
+              />
+          </Field.Root>
+          <Button
+            marginTop="16px"
+            width="100%"
+            padding="12px"
+            bg="#3498db"
+            color="#ffffff"
+            border="none"
+            borderRadius="4px"
+            fontSize="1rem"
+            cursor="pointer"
+          _hover={{
+            backgroundColor: "#2980b9",
+          }}
+          _active={{
+            backgroundColor: "#1f6d98",
+          }}
+          type="submit">
             OK
-          </button>
+          </Button>
         </form>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 export default ItemForm;

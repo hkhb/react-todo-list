@@ -41,7 +41,7 @@ const List: React.FC<TodoItemWithClick> = ({
         boxShadow: "lg",
       }}
     >
-      <Flex justify="space-between" align="center" mb={2}>
+      <Flex justify="space-between" align="center" mb={2} _hover={{ cursor: "pointer" }}>
         <Heading
           size="2xl"
           onClick={onClickEdit}
