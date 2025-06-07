@@ -21,15 +21,8 @@ function App() {
   const [isEdit, setIsEdit] = useState(false);
   const [editList, setEditList] = useState<TodoItem>();
   const [showList, setShowList] = useState<TodoItem[]>([]);
-
-  useEffect(() => {
-    const storedItem = localStorage.getItem('todoItems');
-    if (storedItem !== null) {
-      const value: TodoItem[] = JSON.parse(storedItem);
-      setTodoItems(value);
-    }
-  }, []); // ← 空の依存配列が重要！これで初回レンダー時のみ実行される
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isSwitch, setIsSwitch] = useState(false);
 
   useEffect(() => {
     const storedItem = localStorage.getItem('todoItems');
@@ -47,13 +40,6 @@ function App() {
       setIsLoaded(true);
     }
   }, []);
-
-  useEffect(() => {
-    if(isLoaded){
-      localStorage.setItem('todoItems', JSON.stringify(todoItems));
-      console.log("save!!!!!!!!!!")
-    }
-  },[todoItems])
 
   useEffect(() => {
     if(isLoaded){
@@ -166,6 +152,11 @@ function App() {
     ));
   }
 
+  useEffect(() => {
+    setShowList(todoItems);
+    onSortList(isSwitch);
+  }, [todoItems]);
+
   const onSortList = (isSwitch:boolean) => {
     let List:TodoItem[] = [];
     if(isSwitch){
@@ -173,6 +164,7 @@ function App() {
     }else{
       List = todoItems.filter((list) => list.completed === false );
     }
+    setIsSwitch(isSwitch);
     setShowList([...List])
   }
 
