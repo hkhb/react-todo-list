@@ -1,31 +1,40 @@
 {
-  "hash": "ac408dd4",
-  "configHash": "10c4ea71",
-  "lockfileHash": "5f061444",
-  "browserHash": "a603e007",
+  "hash": "6890609c",
+  "configHash": "c71c1511",
+  "lockfileHash": "d488da00",
+  "browserHash": "9152abf8",
   "optimized": {
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "fb0657c2",
+      "fileHash": "cd4084fa",
       "needsInterop": true
     },
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "dba65476",
+      "fileHash": "c63fa481",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "af69e5a4",
+      "fileHash": "ab30b279",
       "needsInterop": true
+    },
+    "date-fns": {
+      "src": "../../node_modules/date-fns/index.js",
+      "file": "date-fns.js",
+      "fileHash": "18d46d2b",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-3ARHY7UZ": {
-      "file": "chunk-3ARHY7UZ.js"
+    "chunk-DFYSJ242": {
+      "file": "chunk-DFYSJ242.js"
+    },
+    "chunk-JVWSFFO4": {
+      "file": "chunk-JVWSFFO4.js"
     }
   }
 }
