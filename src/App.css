@@ -1,0 +1,47 @@
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+.open-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-field, #description-field {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  border-color: #3498db;
+  outline: none;
+}

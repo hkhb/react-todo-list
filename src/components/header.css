@@ -1,0 +1,48 @@
+/* 通常のCSSを使うならこんな感じ */
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0;
+  background-color: #f5f5f5;
+}
+
+.header-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.button-field {
+  display: flex;
+  gap: 12px; /* ボタン同士の間隔 */
+  justify-content: center; /* 中央寄せ */
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #f0f0f0;
+}
+
+.btn.active.completed {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.btn.active.unComplete {
+  background-color: orange;
+  color: white;
+  border-color: orange;
+}
